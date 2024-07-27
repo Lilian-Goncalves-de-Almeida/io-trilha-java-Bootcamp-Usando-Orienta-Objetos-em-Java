@@ -14,17 +14,17 @@ classDiagram
         -conteudos:Set
     }
 
-    abstract Conteudo {
+    class Conteudo {
         #XP_PADRAO:double
         -titulo:String
         -descricao:String
-        +calcularXP()
+        +calcularXP()void
     }
 
     class Curso {
         -cargaHoraria:int
-        +calcularXP()
-        +toString()
+        +calcularXP()void
+        +toString()String
     }
 
     class Dev {
@@ -32,14 +32,14 @@ classDiagram
         -conteudosInscritos:Set
         -conteudosConcluidos:Set
         +inscreverBootcamp(Bootcamp bootcamp)
-        +progredir():void
-        +calcularXP()
+        +progredir()void
+        +calcularXP()void
     }
 
     class Mentoria {
         -data:LocalDate
-        +calcularXP()
-        +toString()
+        +calcularXP()void
+        +toString()String
     }
 
     Bootcamp --> Conteudo
@@ -51,3 +51,4 @@ classDiagram
 
 ## Referencia
 [https://github.com/cami-la/desafio-poo-dio](Github do desafio)
+[https://mermaid.js.org/intro/](Mermaid Docs)
