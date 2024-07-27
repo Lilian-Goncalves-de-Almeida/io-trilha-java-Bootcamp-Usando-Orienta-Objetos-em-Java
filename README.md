@@ -6,43 +6,47 @@ Desafio de código ofertado pela DIO- Abstraindo um Bootcamp Usando Orientação
 ```mermaid
 classDiagram
     class Bootcamp {
-        -musicaAtual:Musica
-        -musicas:List<Musica>
-        +tocar()
-        +pausar()
-        +selecionarMusica(String musica)
+        -nome:String
+        -descricao:String
+        -dataInitial:LocalDate
+        -dataFinal:LocalDate
+        -devsInscritos:Set
+        -conteudos:Set
     }
 
-    class Conteudo {
-        +ligar(String numero)
-        +atender()
-        +iniciarCorreioVoz()
+    abstract Conteudo {
+        #XP_PADRAO:double
+        -titulo:String
+        -descricao:String
+        +calcularXP()
     }
 
     class Curso {
-        -linkAtual:URL
-        -linksAbertos:List<URL>
-        +exibirPagina(String url)
-        +adicionarNovaAba(URL url)
-        +atualizarPagina()
+        -cargaHoraria:int
+        +calcularXP()
+        +toString()
     }
 
     class Dev {
-        #reprodutor:ReprodutorMusical
-        #telefone:AparelhoTelefonico
-        #navegador:NavegadorInternet
+        -nome:String
+        -conteudosInscritos:Set
+        -conteudosConcluidos:Set
+        +inscreverBootcamp(Bootcamp bootcamp)
+        +progredir():void
+        +calcularXP()
     }
 
     class Mentoria {
-        -titulo:String
-        -autor:String
+        -data:LocalDate
+        +calcularXP()
+        +toString()
     }
 
-    iPhone --> ReprodutorMusical
-    iPhone --> AparelhoTelefonico
-    iPhone --> NavegadorInternet
-    Musica --> ReprodutorMusical
-    URL --> NavegadorInternet
+    Bootcamp --> Conteudo
+    Curso --> Conteudo
+    Mentoria --> Conteudo
+    Dev --> Bootcamp
+    Dec -- Conteudo
 ```
 
 ## Referencia
