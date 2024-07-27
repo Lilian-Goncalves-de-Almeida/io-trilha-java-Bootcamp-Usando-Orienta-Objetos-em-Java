@@ -46,7 +46,7 @@ classDiagram
     Curso --> Conteudo
     Mentoria --> Conteudo
     Dev --> Bootcamp
-    Dec -- Conteudo
+    Dev -- Conteudo
 ```
 
 ## Referencia
